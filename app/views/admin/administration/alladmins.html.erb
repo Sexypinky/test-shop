@@ -1,0 +1,7 @@
+<h1>Все администраторы</h1>
+<%@all.where(admin: true ).find_each do |all|%>
+    <h2> <span class="select"><h3>Логин:</h3> <%=all.email%></span></h2>
+    <h2> <span class="select"><h3>Администратор:</h3> <%=all.admin%></span></h2>
+    <%= link_to 'Снять права',admin_unadmin_path(all),  class: 'btn btn-primary' %>
+    <br>
+  <%end%>

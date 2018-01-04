@@ -1,0 +1,14 @@
+<h1>Все транзакции пользователей</h1>
+<% @transaction.each do |trans|%>
+    <arcicle class="page">
+      <section class="'page-head">
+        <br>
+
+        <h2> <span class="select"><h3>Номер счета отправителя</h3> <%= trans.nomerfrom%></span></h2>
+        <h2> <span class="select"><h3>Номер счета получателя</h3> <%= trans.nomerto%></span></h2>
+        <h2> <span class="select"><h3>Сумма перевода:</h3> <%=trans.summa%></span></h2>
+        <%= link_to 'Удалить транзакцию',transactions_path(trans), method: :delete,  class: 'btn btn-primary' %>
+        <br>
+      </section>
+    </arcicle>
+<%end%>

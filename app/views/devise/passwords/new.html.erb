@@ -1,0 +1,15 @@
+<h2>Востановление пароля</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+Jabber
+  <div class="form-inputs">
+    <%= f.text_field :email, required: true, autofocus: true %>
+  </div>
+<br>
+  <div class="form-actions">
+    <%= f.button :submit, "Отправить инструкции по востановлению пароля на Jabber" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

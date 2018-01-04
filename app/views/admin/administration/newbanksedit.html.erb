@@ -1,0 +1,17 @@
+
+<h1>Banksedit</h1>
+
+<%= simple_form_for (@bank), url: banksedit_path do |f| %>
+  <h5>Номер счета</h5>
+  <div class="form_group">
+    <%= f.text_field :nomer %>
+  </div>
+  <h5> Кол-во денег </h5>
+  <div class="form_group">
+    <%= f.text_field :dengi %>
+  </div>
+  <div class="form_group">
+    <%= f.button :submit, 'Изменить данные', class: 'btn btn-primary' %>
+    <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Счета</h1>
+<% @bank.each do |bank|%>
+    <arcicle class="page">
+      <section class="'page-head">
+        <br>
+        <h2> <span class="select"><h3>Номер:</h3> <%= bank.nomer%></span></h2>
+        <h2> <span class="select"><h3>Кол-во денег:</h3> <%=bank.dengi%></span></h2>
+        <h2> <span class="select"><h3>ID:</h3> <%=bank.id%></span></h2>
+        <%= link_to 'Редактировать счет (не рабочая)',edit_banks_path(bank),  class: 'btn btn-primary' %>
+        <%= link_to 'Удалить счет',admin_destroyadm_path(bank), method: :delete,  class: 'btn btn-primary' %>
+        <br>
+      </section>
+    </arcicle>
+<%end%>

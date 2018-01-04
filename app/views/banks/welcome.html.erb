@@ -1,0 +1,7 @@
+<% if chel_signed_in?%>
+  <h2>Войдите, либо зарегистрируйтесь для доступа к банковскому счету</h2>
+<div class="form-group">
+  <%= link_to 'Войти', :new_checkbanks, class: 'btn btn-outline-secondary' %>
+  <%= link_to 'Регистрация', :banks_new, class: 'btn btn-primary' %>
+</div>
+<%end%>

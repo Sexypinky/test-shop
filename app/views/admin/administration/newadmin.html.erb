@@ -1,0 +1,13 @@
+<h2>Добавление администратора</h2>
+<%= simple_form_for (@chel), url: admin_giveadmin_path, :method => :post do  |f| %>
+
+  <h5>Введите jabber пользователя</h5>
+  <div class= "form_group">
+    <%= f.text_field :email  %>
+  </div>
+  <br>
+  <div class= "form_group">
+    <%= f.button :submit, 'Выдать права администратора', class: 'btn btn-primary' %>
+    <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+  </div>
+<%end%>

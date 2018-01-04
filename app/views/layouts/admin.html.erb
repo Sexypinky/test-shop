@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<%=render 'css'%>
+  <body>
+  <nav class="navbar navbar-inverse bg-inverse">
+    <div class="container">
+      <strong><a class="navbar-brand" href="/">Режим администратора</a></strong>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Новости", "/pages"  %></li>
+          <li><%= link_to "О нас", "/about_us"  %></li>
+          <% if chel_signed_in? %>
+              <li><%= link_to "Личный кабинет", "/cabinet"  %></li>
+          <%end%>
+          <% if chel_signed_in?%>
+              <li> <%= link_to 'Выход', :destroy_chel_session, method: :delete%></li>
+          <%else%>
+              <li> <%= link_to 'Вход', :new_chel_session%></li>
+              <li>  <%= link_to 'Регистрация', :new_chel_registration%></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-12">
+          <% flash.each do |name, message| %>
+            <div class="alert <%= bootstrap_class_for(name) %>">
+              <button class="close" data-dismiss="alert">&times;</button>
+              <%= message %>
+            </div>
+          <% end %>
+          <div class="container">
+
+            <%= yield %>
+            <br>
+            <footer>
+              <p>&copy; Fenix 2017</p>
+            </footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

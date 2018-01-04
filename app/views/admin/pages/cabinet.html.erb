@@ -1,0 +1,17 @@
+        <h3>Функции</h3>
+        <ul class="nav nav-list">
+          <% if chel_signed_in? && current_chel.admin?%>
+          <li><%= link_to "Панель администратора", "/admin/pages/new"  %></li>
+              <%end%>
+          <li><%= link_to "Редактирование аккаунта", "/chels/edit"  %></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+  <br />
+<% if chel_signed_in?%>
+    <%= link_to 'Выход', :destroy_chel_session, class: 'btn btn-primary'%>
+<%else%>
+    <%= link_to 'Вход', :new_chel_session, class: 'btn btn-primary'%>
+    <%= link_to 'Регистрация', :new_chel_registration, class: 'btn btn-primary'%>
+<%end%>
+<br>

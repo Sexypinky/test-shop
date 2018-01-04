@@ -1,0 +1,17 @@
+<h1>Добавление денег пользовтелю</h1>
+
+<%= simple_form_for (@addm), url: admin_addmoney_path do |f| %>
+  <h5>Номер счета</h5>
+  <div class="form_group">
+    <%= f.text_field :nomer %>
+  </div>
+  <h5> Кол-во денег </h5>
+  <div class="form_group">
+    <%= f.text_field :dengi %>
+  </div>
+  <br>
+  <div class="form_group">
+    <%= f.button :submit, 'Пополнить счет', class: 'btn btn-primary' %>
+    <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+  </div>
+<% end %>

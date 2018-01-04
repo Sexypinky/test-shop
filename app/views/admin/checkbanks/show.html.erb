@@ -1,0 +1,14 @@
+<h1>Временные сессии</h1>
+<% @checkbank.each do |bank|%>
+  <arcicle class="page">
+    <section class="'page-head">
+      <br>
+      <h2> <span class="select"><h3>Время открытия сессии:</h3> <%=bank.created_at%></span></h2>
+      <h2> <span class="select"><h3>Номер счета:</h3> <%= bank.nomer%></span></h2>
+      <h2> <span class="select"><h3>Юзер id:</h3> <%=bank.chelid%></span></h2>
+      <h2> <span class="select"><h3>Session id:</h3> <%=bank.id%></span></h2>
+      <%= link_to 'Закрыть сессию', destroysession_path(bank),  class: 'btn btn-primary' %>
+      <br>
+    </section>
+  </arcicle>
+<%end%>

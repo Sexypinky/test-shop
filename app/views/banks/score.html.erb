@@ -1,0 +1,38 @@
+<h1>Управление счетом</h1>
+<% if chel_signed_in? && current_chel.admin?%>
+  <div class="alert alert-warning" role="alert">
+    <strong>Пополнение счета происходит в ручном режимe</strong>.<br> Чтобы пополнить счет преведите на QIWI кошелек +79628329857 нужную Вам сумму, в комментарии к платежу укажите номер Вашего счета.
+  </div>
+      <h2> <span class="select"><h3>Номер счета</h3> <%= @checkB.nomer%></span></h2>
+      <h2> <span class="select"><h3>Текущий баланс</h3> <%=@checkB.dengi%></span></h2>
+      </table>
+      <table class="table" border="4" >
+        <tr><td align="center"><%= link_to 'Денежный перевод',new_transactions_path, class: 'btn btn-primary' %></td>
+        <td align="center"><%= link_to 'Добавить 1000',addmoney_path(@checkB), class: 'btn btn-primary' %></td>
+        <td align="center"><%= link_to 'Обнулить',zero_path(@checkB), class: 'btn btn-primary' %></td></tr>
+        <tr><td align="center"><%= link_to 'История транзакций',banks_mytransactions_path(@checkB),  class: 'btn btn-primary' %></td>
+          <td align="center"><%= link_to 'Удалить счет',banks_path(@checkB), method: :delete,  class: 'btn btn-danger' %></td>
+          <td align="center"><%= link_to 'Мои СС',cards_mycc_path, class: 'btn btn-primary' %></td>
+          </tr>
+      </table>
+    </section>
+  </arcicle>
+<%= link_to 'Закрыть сессию',checkbanks_path(@check),method: :delete, class: 'btn btn-danger' %>
+<br>
+<%else%>
+  <br>
+  <h2> <span class="select"><h3>Номер счета</h3> <%= @checkB.nomer%></span></h2>
+  <h2> <span class="select"><h3>Текущий баланс</h3> <%=@checkB.dengi%></span></h2>
+  <table class="table" border="2">
+    <tr>
+      <td align="center"><%= link_to 'Денежный перевод',new_transactions_path, class: 'btn btn-primary' %></td>
+      <td align="center"><%= link_to 'История транзакций',banks_mytransactions_path(@checkB),  class: 'btn btn-primary' %></td>
+    </tr>
+    <tr>
+      <td align="center"><%= link_to 'Удалить счет',banks_path(@checkB), method: :delete,  class: 'btn btn-danger' %></td>
+      <td align="center"><%= link_to 'Мои СС',cards_mycc_path, class: 'btn btn-primary' %></td>
+    </tr>
+  </table>
+<%= link_to 'Закрыть сессию',checkbanks_path(@check),method: :delete, class: 'btn btn-danger' %>
+  <br>
+<%end%>

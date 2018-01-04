@@ -1,0 +1,30 @@
+<h2>Редактирование карты товара</h2>
+<%= simple_form_for (@card) do |f| %>
+
+  <h5>Содержимое карты товара</h5>
+  <div class= "form_group">
+    <%= f.text_area :cc  %>
+  </div>
+  <h5>Страна</h5>
+  <div class= "form_group">
+    <%= f.text_field :country  %>
+  </div>
+  <div class= "form_group">
+    <%= f.input :full_cc, as: :boolean %>
+  </div>
+  <div class= "form_group">
+    <%= f.input :not_full, as: :boolean  %>
+  </div>
+  <div class= "form_group">
+    <%= f.input :with_vbv, as: :boolean  %>
+  </div>
+  <div class= "form_group">
+    <%= f.input :without_vbv, as: :boolean  %>
+  </div>
+
+  <br>
+  <div class= "form_group">
+    <%= f.button :submit, 'Обновить данные', class: 'btn btn-primary' %>
+    <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+  </div>
+<%end%>

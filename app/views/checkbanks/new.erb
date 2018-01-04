@@ -1,0 +1,16 @@
+
+<h1>Вход</h1>
+<%=@counter%>
+<%= simple_form_for (@checkbank) do |f| %>
+    <h5>Номер счета</h5>
+    <div class="form_group">
+      <%= f.text_field :nomer %>
+    </div>
+    <h5> Пароль </h5>
+    <div class="form_group">
+      <%= f.text_field :password %>
+    </div>
+    <div class="form_group">
+      <%= f.button :submit, "Войти" ,class: 'btn btn-outline-secondary' %>
+    </div>
+<% end %>

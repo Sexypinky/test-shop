@@ -1,0 +1,38 @@
+<head xmlns="http://www.w3.org/1999/html">
+  <style>
+    .select {
+      color: maroon; /* Цвет текста */
+      font-weight: 600; /* Жирное начертание */
+    }
+  </style>
+</head>
+
+<h1>Новости</h1>
+<% @page.each do |page|%>
+    <arcicle class="page">
+      <section class="'page-head">
+        <h2> <span class="select"> <%=link_to page.name, page %></span></h2>
+        <small>
+          <time>
+            <%= page.created_at.to_date.strftime("%d, %B, %Y") %>
+            <% if chel_signed_in? && current_chel.admin?%>
+|
+<%= link_to 'Удалить',admin_pages_path(page), method: :delete, data:{confirm:'Вы уверены?'}%>
+|
+<%= link_to 'Редактировать',edit_admin_pages_path(page)%>
+                <%end%>
+</time>
+</small>
+</section>
+</arcicle>
+<section class="footer-summary">
+  <%= raw page.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-primary' }.join(' ') %>
+</section>
+<%end%>
+<br>
+<% if chel_signed_in? && current_chel.admin? %>
+<div class= "form_group">
+  <%= link_to 'Добавить новость', :new_admin_pages, class: 'btn btn-primary'%>
+</div>
+    <%end%>
+<%= will_paginate @page, renderer: 'BootstrapPaginationHelper::LinkRenderer'%>

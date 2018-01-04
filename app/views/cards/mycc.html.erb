@@ -1,0 +1,34 @@
+<h1>Купленные товары</h1>
+<%Card.where(buyer_id: current_chel.id).find_each do |card|%>
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">Страна</th>
+      <th scope="col">Содержимое</th>
+      <th scope="col">Цена $</th>
+      <th scope="col">FULL CC</th>
+      <th scope="col">WITH VBV</th>
+      <th scope="col">Дата покупки</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row"><%=card.country%></th>
+      <td><%=card.cc%></td>
+      <td><%=card.price%></td>
+      <% if card.full_cc==true%>
+        <td>+</td>
+      <%else%>
+        <td>-</td>
+      <%end%>
+      <% if card.with_vbv==true%>
+        <td>+</td>
+      <%else%>
+        <td>-</td>
+      <%end%>
+      <td><%=card.updated_at%></td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+<%end%>

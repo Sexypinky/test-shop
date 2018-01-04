@@ -1,0 +1,24 @@
+
+<h2>Создание статьи</h2>
+<%= simple_form_for (@page) do |f| %>
+    <h5>Заголовок</h5>
+    <div class= "form_group">
+      <%= f.text_field :name  %>
+    </div>
+    <h5> Содержание </h5>
+    <div class= "form_group">
+      <%= f.trix_editor :description %>
+    </div>
+    <div class= "form_group">
+      <%= f.file_field :image %>
+    </div>
+    <h5> Тэги </h5>
+    <div class= "form_group">
+      <%= f.text_field :all_tags %>
+    </div>
+    <br>
+    <div class= "form_group">
+      <%= f.button :submit, 'Сохранить', class: 'btn btn-primary' %>
+      <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+    </div>
+<%end%>

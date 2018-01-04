@@ -1,0 +1,17 @@
+<h1>Перевод</h1>
+
+<%= simple_form_for (@transaction) do |f| %>
+  <h5>Номер счета получателя</h5>
+  <div class="form_group">
+    <%= f.text_field :nomerto%>
+  </div>
+  <h5>Сумма перевода</h5>
+  <div class="form_group">
+    <%= f.text_field :summa%>
+  </div>
+  <br>
+  <div class="form_group">
+    <%= f.button :submit, 'Перевести', class: 'btn btn-primary' %>
+    <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Панель администратора</h1>
+<%= link_to 'Банковские счета',banks_show_path, class: 'btn btn-primary' %>
+<%= link_to 'Временные сессии клиентов банка',admin_checkbanks_path, class: 'btn btn-primary' %>
+<%= link_to 'Банковские транзакции',admin_alltransactions_path, class: 'btn btn-primary' %>
+<%= link_to 'Все товары',admin_cards_path, class: 'btn btn-primary' %>
+<% if current_chel.email=='hospitalqqqq@gmail.com' %>
+<%= link_to 'Все администраторы',admin_alladmins_path, class: 'btn btn-primary' %>
+<%= link_to 'Выдать права администратора',admin_newadmin_path, class: 'btn btn-primary' %>
+  <%= link_to 'Пополнить счет пользователю',admin_newaddmoney_path, class: 'btn btn-primary' %>
+<%end%>
+<br>

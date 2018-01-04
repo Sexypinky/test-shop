@@ -1,0 +1,15 @@
+<h1>Все товары</h1>
+<% @card.each do |card|%>
+      <br>
+      <h4> <span class="select"><h3>Содержимое CC:</h3> <%= card.cc%></span></h4>
+      <h2> <span class="select"><h3>Страна:</h3> <%=card.country%></span></h2>
+      <h2> <span class="select"><h3>Цена:</h3> <%=card.price%></span></h2>
+      <h2> <span class="select"><h3>Full CC:</h3> <%=card.full_cc%></span></h2>
+      <h2> <span class="select"><h3>Not Full:</h3> <%=card.not_full%></span></h2>
+      <h2> <span class="select"><h3>With VBV:</h3> <%=card.with_vbv%></span></h2>
+      <h2> <span class="select"><h3>Without VBV:</h3> <%=card.without_vbv%></span></h2>
+      <h2> <span class="select"><h3>ID покупателя:</h3> <%=card.buyer_id%></span></h2>
+      <%= link_to 'Редактировать CC (не рабочая)',edit_admin_cards_path(card),  class: 'btn btn-primary' %>
+      <%= link_to 'Удалить CC',admin_cards_path(card), method: :delete,  class: 'btn btn-primary' %>
+      <br>
+<%end%>

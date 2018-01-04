@@ -1,0 +1,18 @@
+
+<h1>Создание счета</h1>
+
+<%= simple_form_for (@bank) do |f| %>
+    <h5>Номер счета (не более 4 цифр)</h5>
+    <div class="form_group">
+      <%= f.text_field :nomer%>
+    </div>
+    <h5> Пароль </h5>
+    <div class="form_group">
+      <%= f.text_field :password %>
+    </div>
+  <br>
+    <div class="form_group">
+      <%= f.button :submit, 'Создать счет', class: 'btn btn-primary' %>
+      <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+    </div>
+<% end %>

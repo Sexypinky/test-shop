@@ -1,0 +1,47 @@
+<h1>Все товары</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <%= bootstrap_flash %>
+      <% @card.where("buyer_id=?",0).find_each do |card|%>
+        <br>
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th scope="col">Страна</th>
+            <th scope="col">Цена $</th>
+            <th scope="col">FULL CC</th>
+            <th scope="col">WITH VBV</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row"><%=card.country%></th>
+            <td><%=card.price%></td>
+            <% if card.full_cc==true%>
+            <td>+</td>
+              <%else%>
+              <td>-</td>
+              <%end%>
+                <% if card.with_vbv==true%>
+                  <td>+</td>
+                <%else%>
+                  <td>-</td>
+            <%end%>
+            <td> <%= link_to 'Купить',cards_buy_path(card),  class: 'btn btn-primary' %></td>
+          </tr>
+          </tbody>
+        </table>
+      <%end%>
+                    </div>
+    <div class="col-lg-3">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">Помощь</li>
+          <li><%= link_to "Поиск", "/cards/search"  %></li>
+          <li><%= link_to "Мои товары", "/cards/mycc"  %></li>
+          <li><%= link_to "Банковский счет", "/banks/score"  %></li>
+        </ul>
+      </div>
+    </div>
+                    </div>

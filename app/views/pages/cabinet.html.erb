@@ -1,0 +1,8 @@
+        <h3>Личный кабинет пользователя <%=current_chel.email%></h3>
+        <% if chel_signed_in? && current_chel.admin?%>
+        <ul class="list-group">
+          <li class="list-group-item"><%= link_to "Панель администратора", "cabinet/administration"  %></li>
+          <%end%>
+          <li class="list-group-item"><%= link_to "Редактирование аккаунта", "/chels/edit"  %></li>
+          <li class="list-group-item"><%= link_to "Банковский счет", "/banks"  %></li>
+          </ul>
